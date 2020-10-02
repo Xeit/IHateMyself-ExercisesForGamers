@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace DailyChallenge.DataStructure
 {
+    //TODO: Think about deleting / rewritting whole thing
     class DataHistorical
     {
+        /// <summary>
+        /// Initialize databases.
+        /// </summary>
         public static void InitializeHistorical()
         {
             StaticValues.historical = new DataTable("Hisotrical");
             StaticValues.historical.Columns.Add(new DataColumn("Date", typeof(DateTime)));
             StaticValues.historical.Columns.Add(new DataColumn("Challenge", typeof(Challenge)));
+            StaticValues.historical.Columns.Add(new DataColumn("DailyTasks", typeof(DailyTask)));
             StaticValues.historical.Columns.Add(new DataColumn("Done", typeof(int)));
             StaticValues.historical.Columns.Add(new DataColumn("Total", typeof(int)));
 
@@ -27,33 +32,42 @@ namespace DailyChallenge.DataStructure
                 CheckForCurrentDay();
             }else
             {
+                StaticValues.currentDailyTask = new DailyTask();
                 ChallengeForNewDay();
             }
         }
 
+        /// <summary>
+        /// Does nothing, it was test if this works.
+        /// </summary>
         private static void SerializeTest()
         {
             DataRow dataRow = StaticValues.historical.NewRow();
             dataRow[0] = DateTime.Now;
             dataRow[1] = Challenge.Plank;
-            dataRow[2] = 3;
-            dataRow[3] = 30;
+            dataRow[2] = StaticValues.currentDailyTask;
+            dataRow[3] = 3;
+            dataRow[4] = 30;
             StaticValues.historical.Rows.Add(dataRow);
 
             dataRow = StaticValues.historical.NewRow();
             dataRow[0] = DateTime.Now;
             dataRow[1] = Challenge.Pushups;
-            dataRow[2] = 6;
-            dataRow[3] = 48;
+            dataRow[2] = StaticValues.currentDailyTask;
+            dataRow[3] = 6;
+            dataRow[4] = 48;
             StaticValues.historical.Rows.Add(dataRow);
 
-            String serializedText = JsonConvert.SerializeObject(StaticValues.historical);
+            String serializedText = JsonConvert.SerializeObject(StaticValues.historical,
+                Formatting.Indented);
             File.WriteAllText("AAA.json",serializedText);
         }
 
         private static void LoadHistoricalData()
         {
             String rawJson = File.ReadAllText("Data.json");
+            Console.WriteLine(rawJson);
+            DataTable dataTable = JsonConvert.DeserializeObject<DataTable>(rawJson);
             StaticValues.historical = JsonConvert.DeserializeObject<DataTable>(rawJson);
         }
 
@@ -77,11 +91,13 @@ namespace DailyChallenge.DataStructure
             if(lastDay.Date != DateTime.Today)
             {
                 ChallengeForNewDay();
+                StaticValues.currentDailyTask.newDay();
             }
         }
 
         public static void ChallengeForNewDay()
         {
+            //TODO: This segment of historical
             int randomChallenge = new Random().Next(5);
             Challenge challenge = Challenge.Plank;
             switch (randomChallenge)
@@ -99,32 +115,33 @@ namespace DailyChallenge.DataStructure
                     challenge = Challenge.Plank;
                     break;
                 case 4:
-                    challenge = Challenge.Situps;
+                    challenge = Challenge.Situp;
                     break;
                 default:
-                    System.Windows.Forms.MessageBox.Show("Error in sellecting challenge, please contact Developer :(");
+                    System.Windows.Forms.MessageBox.Show(
+                        "Error in sellecting challenge, please contact Developer :(");
                     break;
             }
             int repeats = 1;
             switch (randomChallenge)
             {
-                case 0:
+                case 0: // Pushup
                     repeats = 5 * Properties.Settings.Default.UserDifficulty;
                     break;
-                case 1:
+                case 1: // Squat
                     repeats = 10 * Properties.Settings.Default.UserDifficulty;
                     break;
-                case 2:
+                case 2: // Burpee
                     repeats = 5 * Properties.Settings.Default.UserDifficulty;
                     break;
-                case 3:
+                case 3: // Plank
                     repeats = 15 * Properties.Settings.Default.UserDifficulty;
                     break;
-                case 4:
+                case 4: // Situp
                     repeats = 7 * Properties.Settings.Default.UserDifficulty;
                     break;
                 default:
-                    //For deafault (if something goes wrong) there is Plank.
+                    //For deafault (if something goes wrong) there is Plank (bcs I hate it).
                     repeats = 15 * Properties.Settings.Default.UserDifficulty;
                     break;
             }
@@ -132,16 +149,21 @@ namespace DailyChallenge.DataStructure
             DataRow dataRow = StaticValues.historical.NewRow();
             dataRow[0] = DateTime.Today;
             dataRow[1] = challenge;
-            dataRow[2] = 0;
-            dataRow[3] = repeats;
+            dataRow[2] = StaticValues.currentDailyTask;
+            dataRow[3] = 0;
+            dataRow[4] = repeats;
             StaticValues.historical.Rows.Add(dataRow);
 
             // Save file with new, updated database
-            String serializedText = JsonConvert.SerializeObject(StaticValues.historical);
+            String serializedText = JsonConvert.SerializeObject(StaticValues.historical, 
+                Formatting.Indented);
             File.WriteAllText("data.json", serializedText);
 
             // Save data for current use (like timer to next day)
-            StaticValues.currentDay = new Data(DateTime.Now, challenge, 0, repeats);
+            
+            
+            
+            //StaticValues.currentDay = new Data(DateTime.Now, challenge, 0, repeats);
         }
     }
 }

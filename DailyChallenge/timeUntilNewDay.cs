@@ -18,7 +18,7 @@ namespace DailyChallenge
 
             System.Timers.Timer timer = new System.Timers.Timer(timeUntilDay);
 
-            Console.WriteLine("Czas do konca: {0} min", timeUntilDay / 1000 / 60);
+            Console.WriteLine("Time until new day: {0} min", timeUntilDay / 1000 / 60);
 
             timer.Elapsed += Event;
             timer.AutoReset = true;
@@ -30,6 +30,7 @@ namespace DailyChallenge
         {
             Console.WriteLine("New day!");
             DataStructure.DataHistorical.ChallengeForNewDay();
+            StaticValues.currentDailyTask.newDay();
             //TODO: Make event for new day (update file, update hisotry)
         }
     }

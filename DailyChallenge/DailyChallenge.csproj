@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructure\DailyExercises.cs" />
+    <Compile Include="DataStructure\DailyChallenge.cs" />
+    <Compile Include="DataStructure\DailyTask.cs" />
     <Compile Include="DataStructure\DataHistorical.cs" />
     <Compile Include="StaticValues.cs" />
     <Compile Include="timeUntilNewDay.cs" />

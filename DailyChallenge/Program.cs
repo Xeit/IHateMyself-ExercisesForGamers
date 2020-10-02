@@ -18,13 +18,13 @@ namespace DailyChallenge
         [STAThread]
         static void Main()
         {
+
+            /*
             Data data = new Data(DateTime.Now, Challenge.Plank, 0, 25);
             StaticValues.currentDay = data;
-
-            
-
             string jsonString = JsonConvert.SerializeObject(data);
             File.WriteAllText("serializacja.json", jsonString);
+            */
 
 
 
@@ -36,7 +36,8 @@ namespace DailyChallenge
 
 
             // Initialize data and get historic data from files.
-            DataStructure.DataHistorical.InitializeHistorical();
+            //TODO: Rewrite whole initialization
+            //DataStructure.DataHistorical.InitializeHistorical();
 
             //Timer for new day
             TimeUntilNewDay.NewDayTimer();

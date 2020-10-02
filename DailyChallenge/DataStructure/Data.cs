@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DailyChallenge.DataStructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,13 @@ namespace DailyChallenge
 
     }
     [Serializable]
-    class Data
+    public class Data
     {
         public DateTime date { get; set; }
         public Challenge challenge { get; set; }
         public int done { get; set; }
         public int total { get; set; }
-
+        public DailyTask dailyTask { get; set; }
 
         public Data(DateTime date, Challenge challenge, int done, int total)
         {
@@ -59,12 +60,4 @@ namespace DailyChallenge
             return total;
         }
     }
-
-    class dailyTask
-    {
-        public int 
-    }
-
-
-
 }
