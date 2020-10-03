@@ -5,9 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DailyChallenge
+namespace DailyChallenge.DataStructure
 {
-    public enum Challenge
+    //TODO: Make functions to handle all this data. (nothing to do for now unelss nececary)
+    [Serializable]
+    class Data
+    {
+        //TODO: Throw dailyExercises to list or something similiar
+        public List<DailyExercises> dailyExerciesList { get; set; }
+        public DailyExercises dailyExercises { get; set; }
+        public User user { get; set; }
+
+        public Data() { }
+        public Data(float Weight, float Height, string Name, int Age, UInt64 BellyXp, UInt64 LegsXp, UInt64 ArmsXp)
+        {
+            dailyExercises = new DailyExercises();
+            user = new User(Weight, Height, Name, Age, BellyXp, LegsXp, ArmsXp);
+        }
+    }
+
+
+
+    /*public enum Challenge
     {
         Pushups, //Pompki
         Squats, //Przysiady
@@ -59,5 +78,5 @@ namespace DailyChallenge
         {
             return total;
         }
-    }
+    }*/
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DailyChallenge.DataStructure
 {
+    [Serializable]
     class DailyExercises
     {
         //TODO: rename it (to DailyExercises) to store only tasks and challenge, use as a list in Data structure

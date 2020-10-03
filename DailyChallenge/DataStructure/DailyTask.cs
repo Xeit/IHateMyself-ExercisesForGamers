@@ -10,15 +10,15 @@ namespace DailyChallenge.DataStructure
     public class DailyTask
     {
         // How many repeats of each exercise user did. (resets everyday)
-        public int PushupsDone { get; set; }
-        public int SquatsDone { get; set; }
-        public int PlankDone { get; set; }
-        public int SitupsDone { get; set; }
-        public int BurpeesDone { get; set; }
-        public int MountainClimbersDone { get; set; }
-        public int SprawlDone { get; set; }
-        public int RussianTwistsDone { get; set; }
-        public int HeelTouchesDone { get; set; }
+        public int pushupsDone { get; set; }
+        public int squatsDone { get; set; }
+        public int plankDone { get; set; }
+        public int situpsDone { get; set; }
+        public int burpeesDone { get; set; }
+        public int mountainClimbersDone { get; set; }
+        public int sprawlDone { get; set; }
+        public int russianTwistsDone { get; set; }
+        public int heelTouchesDone { get; set; }
 
         // How many user should do we can get from difficulty setting.
         public int DifficultyForThatDay { get; set; }
@@ -32,15 +32,15 @@ namespace DailyChallenge.DataStructure
         {
             DifficultyForThatDay = Properties.Settings.Default.UserDifficulty;
 
-            PushupsDone = 0;
-            SquatsDone = 0;
-            PlankDone = 0;
-            SitupsDone = 0;
-            BurpeesDone = 0;
-            MountainClimbersDone = 0;
-            SprawlDone = 0;
-            RussianTwistsDone = 0;
-            HeelTouchesDone = 0;
+            pushupsDone = 0;
+            squatsDone = 0;
+            plankDone = 0;
+            situpsDone = 0;
+            burpeesDone = 0;
+            mountainClimbersDone = 0;
+            sprawlDone = 0;
+            russianTwistsDone = 0;
+            heelTouchesDone = 0;
 
             //TODO: delete this
             /*pushups = 5 * Properties.Settings.Default.UserDifficulty;
@@ -58,31 +58,31 @@ namespace DailyChallenge.DataStructure
             switch(whatExercise)
             {
                 case 0:
-                    PushupsDone += howMuch;
+                    pushupsDone += howMuch;
                     break;
                 case 1:
-                    SquatsDone += howMuch;
+                    squatsDone += howMuch;
                     break;
                 case 2:
-                    PlankDone += howMuch;
+                    plankDone += howMuch;
                     break;
                 case 3:
-                    SitupsDone += howMuch;
+                    situpsDone += howMuch;
                     break;
                 case 4:
-                    BurpeesDone += howMuch;
+                    burpeesDone += howMuch;
                     break;
                 case 5:
-                    MountainClimbersDone += howMuch;
+                    mountainClimbersDone += howMuch;
                     break;
                 case 6:
-                    SprawlDone += howMuch;
+                    sprawlDone += howMuch;
                     break;
                 case 7:
-                    RussianTwistsDone += howMuch;
+                    russianTwistsDone += howMuch;
                     break;
                 case 8:
-                    HeelTouchesDone += howMuch;
+                    heelTouchesDone += howMuch;
                     break;
                 default:
                     System.Windows.Forms.MessageBox.Show(
