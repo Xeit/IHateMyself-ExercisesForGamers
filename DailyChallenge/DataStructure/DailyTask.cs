@@ -49,7 +49,7 @@ namespace DailyChallenge.DataStructure
             situps = 7 * Properties.Settings.Default.UserDifficulty;*/
         }
 
-        public void somethingDone(
+        public void exerciseDone(
             int howMuch, 
             short whatExercise /* 0 - pushup ; 1 - squat ; 2 - plank ; 3 - situp ; 4 - burpee
                                 5 - mountain climber ; 6 - sprawl ; 7 - russian twist; 

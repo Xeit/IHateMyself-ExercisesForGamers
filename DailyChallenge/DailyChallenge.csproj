@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructure\FileHandler.cs" />
     <Compile Include="DataStructure\User.cs" />
     <Compile Include="DataStructure\UserData.cs" />
     <Compile Include="DataStructure\Stats.cs" />

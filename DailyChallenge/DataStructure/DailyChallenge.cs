@@ -35,5 +35,44 @@ namespace DailyChallenge.DataStructure
             howManyDone = 0;
             howManyRequired = 10;
         }
+
+        public void challengeForNewDay()
+        {
+            int randomChallenge = new Random().Next(5);
+            switch (randomChallenge)
+            {
+                case 0:
+                    challenge = Challenge.Pushups;
+                    break;
+                case 1:
+                    challenge = Challenge.Squats;
+                    break;
+                case 2:
+                    challenge = Challenge.Plank;
+                    break;
+                case 3:
+                    challenge = Challenge.Situp;
+                    break;
+                case 4:
+                    challenge = Challenge.Burpees;
+                    break;
+                case 5:
+                    challenge = Challenge.MountainClimbers;
+                    break;
+                case 6:
+                    challenge = Challenge.Sprawl;
+                    break;
+                case 7:
+                    challenge = Challenge.RussianTwist;
+                    break;
+                case 8:
+                    challenge = Challenge.HeelTouch;
+                    break;
+                default:
+                    System.Windows.Forms.MessageBox.Show(
+                        "Error in sellecting challenge, please contact Developer :(");
+                    break;
+            }
+        }
     }
 }

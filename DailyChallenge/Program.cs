@@ -12,12 +12,22 @@ namespace DailyChallenge
 {
     static class Program
     {
+        public static DataStructure.Data data;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            //TODO: Posibility for user to change difficulty of training
+            Properties.Settings.Default.UserDifficulty = 1;
+
+            data = new DataStructure.Data();
+
+
+
+
+
 
             /*
             Data data = new Data(DateTime.Now, Challenge.Plank, 0, 25);
@@ -28,8 +38,6 @@ namespace DailyChallenge
 
 
 
-            //TODO: Posibility for user to change difficulty of training
-            Properties.Settings.Default.UserDifficulty = 1;
 
             //TODO: Progress to complete challenge
 
@@ -37,7 +45,7 @@ namespace DailyChallenge
 
             // Initialize data and get historic data from files.
             //TODO: Rewrite whole initialization
-            //DataStructure.DataHistorical.InitializeHistorical();
+            DataStructure.FileHandler.InitializeData();
 
             //Timer for new day
             TimeUntilNewDay.NewDayTimer();

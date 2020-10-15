@@ -1,6 +1,7 @@
 ﻿using DailyChallenge.DataStructure;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +14,19 @@ namespace DailyChallenge.DataStructure
     {
         //TODO: Throw dailyExercises to list or something similiar
         public List<DailyExercises> dailyExerciesList { get; set; }
-        public DailyExercises dailyExercises { get; set; }
         public User user { get; set; }
 
-        public Data() { }
+        public Data() { dailyExerciesList = new List<DailyExercises>(); }
         public Data(float Weight, float Height, string Name, int Age, UInt64 BellyXp, UInt64 LegsXp, UInt64 ArmsXp)
         {
-            dailyExercises = new DailyExercises();
+            dailyExerciesList = new List<DailyExercises>();
+            dailyExerciesList.Add(new DailyExercises());
             user = new User(Weight, Height, Name, Age, BellyXp, LegsXp, ArmsXp);
+        }
+        public void newDay()
+        {
+            dailyExerciesList.Add(new DailyExercises());
+            FileHandler.saveFile();
         }
     }
 

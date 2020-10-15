@@ -9,14 +9,17 @@ namespace DailyChallenge
 {
     class TimeUntilNewDay
     {
+        private static Int64 timeUntilDay;
+        private static System.Timers.Timer timer;
         public static void NewDayTimer()
         {
-            Int64 timeUntilDay = 86400000 - ((DateTime.Now.Hour * 60 * 60 * 1000) +
+            //TODO: Timer for new day
+            timeUntilDay = 86400000 - ((DateTime.Now.Hour * 60 * 60 * 1000) +
                 (DateTime.Now.Minute * 60 * 1000) +
                 (DateTime.Now.Second * 1000) +
                 DateTime.Now.Millisecond);
 
-            System.Timers.Timer timer = new System.Timers.Timer(timeUntilDay);
+            timer = new System.Timers.Timer(timeUntilDay);
 
             Console.WriteLine("Time until new day: {0} min", timeUntilDay / 1000 / 60);
 
@@ -29,8 +32,14 @@ namespace DailyChallenge
         private static void Event(Object source, ElapsedEventArgs eventArgs)
         {
             Console.WriteLine("New day!");
-            DataStructure.DataHistorical.ChallengeForNewDay();
-            StaticValues.currentDailyTask.newDay();
+            Program.data.newDay();
+            timeUntilDay = 86400000 - ((DateTime.Now.Hour * 60 * 60 * 1000) +
+                (DateTime.Now.Minute * 60 * 1000) +
+                (DateTime.Now.Second * 1000) +
+                DateTime.Now.Millisecond);
+            timer = new System.Timers.Timer(timeUntilDay);
+            //DataStructure.DataHistorical.ChallengeForNewDay();
+            //StaticValues.currentDailyTask.newDay();
             //TODO: Make event for new day (update file, update hisotry)
         }
     }
