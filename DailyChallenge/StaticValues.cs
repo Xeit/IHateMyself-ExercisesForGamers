@@ -5,11 +5,7 @@ namespace DailyChallenge
 {
     class StaticValues
     {
-        public static Data currentDay;
         public static DailyTask currentDailyTask;
         public static DataTable historical;
-        
-
-
     }
 }

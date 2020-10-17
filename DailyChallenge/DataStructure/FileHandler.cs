@@ -22,6 +22,13 @@ namespace DailyChallenge.DataStructure
                 String rawJson = File.ReadAllText("Data.json");
                 Console.WriteLine(rawJson);
                 Program.data = JsonConvert.DeserializeObject<Data>(rawJson);
+
+
+                DailyExercises dataToCheckDate = Program.data.dailyExerciesList.Last();
+                if (dataToCheckDate.dateTime != DateTime.Today)
+                {
+                    Program.data.NewDay();
+                }
             }
             else
             {

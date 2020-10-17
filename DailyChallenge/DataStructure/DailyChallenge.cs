@@ -30,15 +30,16 @@ namespace DailyChallenge.DataStructure
 
         public DailyChallenge()
         {
-            //TODO: new day for this class
-            challenge = Challenge.Burpees;
+            ChallengeForNewDay();
+
             howManyDone = 0;
+            //TODO: requirement based on difficulty
             howManyRequired = 10;
         }
 
-        public void challengeForNewDay()
+        public void ChallengeForNewDay()
         {
-            int randomChallenge = new Random().Next(5);
+            int randomChallenge = new Random().Next(9);
             switch (randomChallenge)
             {
                 case 0:
