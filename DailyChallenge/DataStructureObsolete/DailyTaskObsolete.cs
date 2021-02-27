@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DailyChallenge.DataStructure
 {
     [Serializable]
-    public class DailyTask
+    public class DailyTaskObsolete
     {
         // How many repeats of each exercise user did. (resets everyday)
         public int pushupsDone { get; set; }
@@ -23,7 +23,7 @@ namespace DailyChallenge.DataStructure
         // How many user should do we can get from difficulty setting.
         public int DifficultyForThatDay { get; set; }
 
-        public DailyTask()
+        public DailyTaskObsolete()
         {
             newDay();
         }

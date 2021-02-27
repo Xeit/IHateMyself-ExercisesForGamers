@@ -51,17 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataStructure\FileHandler.cs" />
-    <Compile Include="DataStructure\User.cs" />
-    <Compile Include="DataStructure\UserData.cs" />
-    <Compile Include="DataStructure\Stats.cs" />
-    <Compile Include="DataStructure\DailyExercises.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="DataStructureObsolete\FileHandlerObsolete.cs" />
+    <Compile Include="DataStructureObsolete\UserObsolete.cs" />
+    <Compile Include="DataStructureObsolete\UserDataObsolete.cs" />
+    <Compile Include="DataStructureObsolete\StatsObsolete.cs" />
+    <Compile Include="DataStructureObsolete\DailyExercisesObsolete.cs" />
+    <Compile Include="DataStructureObsolete\DailyChallengeObsolete.cs" />
+    <Compile Include="DataStructureObsolete\DailyTaskObsolete.cs" />
+    <Compile Include="DataStructureObsolete\DataHistoricalObsolete.cs" />
+    <Compile Include="DataStructure\ExercisesEnum.cs" />
     <Compile Include="DataStructure\DailyChallenge.cs" />
-    <Compile Include="DataStructure\DailyTask.cs" />
-    <Compile Include="DataStructure\DataHistorical.cs" />
+    <Compile Include="DataStructure\UserData.cs" />
     <Compile Include="StaticValues.cs" />
     <Compile Include="timeUntilNewDay.cs" />
-    <Compile Include="DataStructure\Data.cs" />
+    <Compile Include="DataStructureObsolete\DataObsolete.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Errors.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

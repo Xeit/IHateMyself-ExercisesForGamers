@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace DailyChallenge.DataStructure
 {
     [Serializable]
-    class Stats
+    class StatsObsolete
     {
         //This all total xp user earned in this categories.
         public UInt64 bellyXp { get; set; }
         public UInt64 legsXp { get; set; }
         public UInt64 armsXp { get; set; }
 
-        public Stats()
+        public StatsObsolete()
         {
 
         }
-        public Stats(UInt64 BellyXp, UInt64 LegsXp, UInt64 ArmsXp)
+        public StatsObsolete(UInt64 BellyXp, UInt64 LegsXp, UInt64 ArmsXp)
         {
             this.bellyXp = BellyXp;
             this.legsXp = LegsXp;

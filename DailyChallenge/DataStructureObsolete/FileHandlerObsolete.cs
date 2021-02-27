@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DailyChallenge.DataStructure
 {
-    class FileHandler
+    class FileHandlerObsolete
     {
 
         /// <summary>
@@ -21,10 +21,10 @@ namespace DailyChallenge.DataStructure
             {
                 String rawJson = File.ReadAllText("Data.json");
                 Console.WriteLine(rawJson);
-                Program.data = JsonConvert.DeserializeObject<Data>(rawJson);
+                Program.data = JsonConvert.DeserializeObject<DataObsolete>(rawJson);
 
 
-                DailyExercises dataToCheckDate = Program.data.dailyExerciesList.Last();
+                DailyExercisesObsolete dataToCheckDate = Program.data.dailyExerciesList.Last();
                 if (dataToCheckDate.dateTime != DateTime.Today)
                 {
                     Program.data.NewDay();
@@ -32,7 +32,7 @@ namespace DailyChallenge.DataStructure
             }
             else
             {
-                Program.data = new Data(90, 180, "User", 20, 0, 0, 0);
+                Program.data = new DataObsolete(90, 180, "User", 20, 0, 0, 0);
                 String serializedText = JsonConvert.SerializeObject(Program.data, Formatting.Indented);
                 File.WriteAllText("data.json", serializedText);
                 //TODO: make form for new user.

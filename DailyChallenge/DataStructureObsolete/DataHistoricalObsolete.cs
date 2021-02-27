@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DailyChallenge.DataStructure
 {
     //TODO: Think about deleting / rewritting whole thing
-    class DataHistorical
+    class DataHistoricalObsolete
     {
         /// <summary>
         /// Initialize databases.
@@ -20,7 +20,7 @@ namespace DailyChallenge.DataStructure
             StaticValues.historical = new DataTable("Hisotrical");
             StaticValues.historical.Columns.Add(new DataColumn("Date", typeof(DateTime)));
             StaticValues.historical.Columns.Add(new DataColumn("Challenge", typeof(Challenge)));
-            StaticValues.historical.Columns.Add(new DataColumn("DailyTasks", typeof(DailyTask)));
+            StaticValues.historical.Columns.Add(new DataColumn("DailyTasks", typeof(DailyTaskObsolete)));
             StaticValues.historical.Columns.Add(new DataColumn("Done", typeof(int)));
             StaticValues.historical.Columns.Add(new DataColumn("Total", typeof(int)));
 
@@ -32,7 +32,7 @@ namespace DailyChallenge.DataStructure
                 CheckForCurrentDay();
             }else
             {
-                StaticValues.currentDailyTask = new DailyTask();
+                StaticValues.currentDailyTask = new DailyTaskObsolete();
                 ChallengeForNewDay();
             }
         }

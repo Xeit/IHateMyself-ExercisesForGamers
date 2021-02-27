@@ -1,0 +1,24 @@
+﻿Errors with data:
+
+1XX - Problems with data and data handling
+
+Globals.cs
+{
+	113 - Error with initializing global variables
+}
+DataStructure.UserData.cs
+{
+	100 - Error with updating User's first name
+	101 - Error with updating User's second name
+	102 - Error with updating User's weight
+	103 - Error with updating User's height
+	104 - Error with updating User's date of birth (bornDate)
+	105 - Error with adding XP to legs (too much XP)
+	106 - Error with adding XP to legs (problem with adding)
+	107 - Error with adding XP to belly (too much XP)
+	108 - Error with adding XP to belly (problem with adding)
+	109 - Error with adding XP to chest (too much XP)
+	110 - Error with adding XP to chest (problem with adding)
+	111 - Error with adding XP to arms (too much XP)
+	112 - Error with adding XP to arms (problem with adding)
+}
